@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication</title>
+    <title>Autenticação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello</h1>
+    <div class="container">
+        <h1>Autenticação</h1>
+        <button class="button" onclick="autenticar()">Autenticar</button>
+    </div>
+    <script>
+        function autenticar() {
+            // Realizar uma requisição para a rota de autenticação no servidor
+            fetch('http://localhost:4200/auth', {
+                method: 'GET'
+            })
+                .then(response)
+                .then(data => {
+                    // Manipular a resposta do servidor, se necessário
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+    </script>
 </body>
+
 </html>
