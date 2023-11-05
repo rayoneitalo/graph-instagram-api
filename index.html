@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticação</title>
+    <title>Exchange Access Token</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,11 +37,11 @@
 
 <body>
     <div class="container">
-        <h1>Autenticação</h1>
-        <button class="button" onclick="autenticar()">Autenticar</button>
+        <h1>Exchange Access Token</h1>
+        <button class="button" onclick="generateAccessCode()">Submit</button>
     </div>
     <script>
-        function autenticar() {
+        function generateAccessCode() {
             // Realizar uma requisição para a rota de autenticação no servidor
             fetch('https://graph-instagram-api.vercel.app/auth', {
                 method: 'GET'
