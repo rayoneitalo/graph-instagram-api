@@ -46,7 +46,7 @@
             fetch('https://graph-instagram-api.vercel.app/auth', {
                 method: 'GET'
             })
-                .then(response)
+                .then(response => response.json())
                 .then(data => {
                     // Manipular a resposta do servidor, se necessário
                     console.log(data);
