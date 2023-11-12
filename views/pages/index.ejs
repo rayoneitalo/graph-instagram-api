@@ -32,6 +32,25 @@
         .button:hover {
             background-color: #45a049;
         }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -39,6 +58,11 @@
     <div class="container">
         <h1>Exchange Access Token</h1>
         <button class="button" onclick="generateAccessCode()">Submit</button>
+
+        <input type="text" id="tokenInput" value="<%= code %>" readonly>
+        <button onclick="copiarToken()">Copiar</button>
+
+
     </div>
     <script>
         function generateAccessCode() {
@@ -56,6 +80,14 @@
                 .catch(error => {
                     console.error('Erro:', error);
                 });
+        }
+
+        function copiarToken() {
+            var copyText = document.getElementById("tokenInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            // alert("Token copiado: " + copyText.value);
         }
     </script>
 </body>
