@@ -42,19 +42,26 @@
     </div>
     <script>
         function generateAccessCode() {
-            // // Realizar uma requisição para a rota de autenticação no servidor
-            // fetch('https://api.instagram.com/oauth/authorize?client_id=715636090427857&redirect_uri=https://graph-instagram-api.vercel.app/auth&scope=user_profile&response_type=code&state=1', {
-            //     method: 'GET'
-            // })
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         // Manipular a resposta do servidor, se necessário
-            //         console.log(data);
-            //     })
-            //     .catch(error => {
-            //         console.error('Erro:', error);
+            // Realizar uma requisição para a rota de autenticação no servidor
+            fetch('https://api.instagram.com/oauth/authorize?client_id=715636090427857&redirect_uri=https://graph-instagram-api.vercel.app/auth&scope=user_profile&response_type=code&state=1', {
+                method: 'GET', mode: 'no-cors'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Manipular a resposta do servidor, se necessário
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+            // fetch(request, { mode: 'no-cors' })
+            //     .then(function (response) {
+            //         console.log(response);
+            //     }).catch(function (error) {
+            //         console.log('Request failed', error)
             //     });
-            window.location.href("https://api.instagram.com/oauth/authorize?client_id=715636090427857&redirect_uri=https://graph-instagram-api.vercel.app/auth&scope=user_profile&response_type=code&state=1")
+
         }
     </script>
 </body>
