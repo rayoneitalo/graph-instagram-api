@@ -43,8 +43,18 @@
     <script>
         function generateAccessCode() {
             // Realizar uma requisição para a rota de autenticação no servidor
-            window.location.href = "https://graph-instagram-api.vercel.app/auth";
-
+            fetch('https://api.instagram.com/oauth/authorize?client_id=715636090427857&redirect_uri=https://graph-instagram-api.vercel.app/auth&scope=user_profile&response_type=code&state=1', {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Manipular a resposta do servidor, se necessário
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
         }
     </script>
 </body>
