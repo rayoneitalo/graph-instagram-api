@@ -44,7 +44,11 @@
         function generateAccessCode() {
             // Realizar uma requisição para a rota de autenticação no servidor
             fetch('https://api.instagram.com/oauth/authorize?client_id=715636090427857&redirect_uri=https://graph-instagram-api.vercel.app/auth&scope=user_profile&response_type=code&state=1', {
-                method: 'GET', mode: 'no-cors'
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
             })
                 .then(response => response.json())
                 .then(data => {
